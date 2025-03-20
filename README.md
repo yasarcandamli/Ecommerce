@@ -125,3 +125,132 @@ Create a `.env` file and set the required environment variables for the database
 ### Logging & Debugging
 
 - Enable debugging by modifying `application.properties`
+
+  &nbsp;
+
+  &nbsp;
+
+# Frontend
+
+This project is the **frontend** of an e-commerce platform built using **React**, **Redux**, and **Stripe**. It provides a fully functional interface for users to view products, add them to the cart, make payments, and manage their accounts.
+
+## Features
+
+- **Product Listing**: Products are displayed with categories and filter options.
+
+- **Cart Management**: Users can add products to the cart, remove items, and update quantities.
+
+- **Payment Processing**: Secure payments through Stripe.
+
+- **User Login & Registration**: Users can log in or create an account.
+
+- **Responsive Design**: Fully responsive UI for both mobile and desktop.
+
+## Tech Stack
+
+- **Frontend**: React, Redux, React Router, MUI (Material-UI)
+
+- **DevTools**: React Developer Tools, Redux DevTools
+
+- **CSS**: TailwindCSS, DaisyUI (UI components), Emotion (styled components)
+
+- **Payment System**: Stripe
+
+- **State Management**: Redux Toolkit (`@reduxjs/toolkit`)
+
+- **Build & Development**: Vite (Fast development and production build)
+
+## Setup
+
+To get this project up and running locally, follow the steps below.
+
+### Prerequisites
+
+- **Node.js** (v18 and above)
+
+- **npm** (v8 and above)
+
+### Step 1: Clone the Repository
+
+```bash
+git clone https://github.com/yasarcandamli/Ecommerce
+```
+
+### Step 2: Install Dependencies
+
+```bash
+npm install
+```
+
+### Step 3: Configure Environment Variables
+
+Create a .env file in the root directory and set the following variables:
+
+```bash
+VITE_BACKEND_URL=http://localhost:8080
+VITE_STRIPE_PUBLISHABLE_KEY=your-stripe-publishable-key
+VITE_FRONTEND_URL=http://localhost:5173
+```
+
+- **VITE_BACKEND_URL**: The URL of your backend API.
+
+- **VITE_STRIPE_PUBLISHABLE_KEY**: Your Stripe public key.
+
+- **VITE_FRONTEND_URL**: The URL where your frontend will run.
+
+### Step 4: Start the Development Server
+
+```bash
+npm run dev
+```
+
+This will start the development server, and the application will be available at `http://localhost:5173`.
+
+## API Endpoints
+
+The frontend interacts with the backend API.
+
+## Redux Store Structure
+
+Redux is used to manage the app's state. Below is an overview of the reducers and actions:
+
+**`authReducer`**
+Handles user authentication state. User details, login, logout, and registration states are managed here.
+
+**`cartReducer`**
+Manages the user's cart. Cart items, total price, and cart ID are stored here.
+
+**`productReducer`**
+Manages product data and categories. Product listing and category selection are handled in this reducer.
+
+**`errorReducer`**
+Manages the loading states and error messages for API requests. It also handles category and button loaders.
+
+**`paymentMethodReducer`**
+Used for selecting a payment method in the cart. Stores the chosen payment method.
+
+### Actions
+
+- **fetchProducts**: Fetches products from the API.
+
+- **fetchCategories**: Fetches categories from the API.
+
+- **addToCart**: Adds a product to the cart.
+
+- **removeFromCart**: Removes a product from the cart.
+
+- **authenticateSignInUser**: Authenticates a user and logs them in.
+
+- **registerNewUser**: Registers a new user.
+
+- **createStripePaymentSecret**: Generates a Stripe payment client secret.
+
+- **stripePaymentConfirmation**: Confirms the payment with Stripe.
+
+### Troubleshooting
+
+- Unable to Connect to Backend: Ensure that the VITE_BACKEND_URL in your .env file is correct and the backend server is running.
+
+- Stripe Payment Issues: Double-check your Stripe public key and ensure it is properly added to the .env file.
+
+- CORS Errors: If you're encountering CORS errors, make sure the backend is allowing requests from http://localhost:5173. (This problem handled in the backend - **`WebConfig.java`** )
