@@ -11,13 +11,16 @@ import java.util.List;
 
 @Configuration
 public class WebConfig {
-    @Value("${frontend.url}")
-    String frontendUrl;
+    @Value("${frontend1.url}")
+    String frontendUrl1;
+
+    @Value("${frontend2.url}")
+    String frontendUrl2;
 
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of(frontendUrl, "http://localhost:3000"));
+        configuration.setAllowedOrigins(List.of(frontendUrl1, frontendUrl2));
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowCredentials(true);
