@@ -5,6 +5,7 @@ export default {
     extend: {
       fontFamily: {
         montserrat: ["Montserrat", "sans-serif"],
+        poppins: ['Poppins', 'sans-serif'],
       },
       boxShadow: {
         custom: "0 0 15px rgba(0, 0, 0, 0.3)",
